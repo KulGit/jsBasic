@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    "use strict"
+
+    // ЗАДАНИЕ 4.1 es5
+
+    function Product (name,price) {
+        this.name = name;
+        this.price = price;
+        // this.makePercentDiscount = function(discount) {
+        //     this.price = this.price - (this.price/100*discount);
+        // }
+    }
+
+    let disco = {
+        makePercentDiscount: function (discount) {
+            this.price = this.price - (this.price/100*discount)
+        }
+    }
+
+    Product.prototype = disco;
+    const product1 = new Product ('товар1', 100);
+    const product2 = new Product ('товар2', 200);
+    const product3 = new Product ('товар2', 300);
+
+    product1.makePercentDiscount(25);
+    product2.makePercentDiscount(50);
+
+    console.log(product1);
+    console.log(product2);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

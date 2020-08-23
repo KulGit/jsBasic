@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    "use strict"
+
+    // ЗАДАНИЕ 4.2 es6
+    
+    class Post {
+        constructor (author,text,date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+        edit (){
+            this.text = prompt('Введите текст автора под именем  '+ this.author);
+        }
+    }
+
+    class AttachedPost extends Post {
+        constructor (author,text,date,highlihgted) {
+            super(author,text,date);
+            this.highlihgted = false;
+        }
+        makeTextHighlighted() {
+            this.highlihgted = true;
+        }
+
+    }
+
+    const poster1 = new AttachedPost ('Alex', 'черновик','24/08');
+    
+    console.log(poster1);
+
+    poster1.edit();
+    poster1.makeTextHighlighted();
+
+    console.log(poster1);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
