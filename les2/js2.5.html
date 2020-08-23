@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+"use strict";
+
+// ЗАДАНИЕ 2.5
+
+function sum(a,b) {
+    return a+b;
+}
+
+function diff(a,b) {
+    return a-b;
+}
+function multi(a,b) {
+    return a*b;
+}
+function div (a,b) {
+    return a/b;
+}
+
+function mathOperation(arg1,arg2,oper) {
+    switch (oper) {
+        case '+': return(sum(arg1,arg2));
+        case '-': return(diff(arg1,arg2));
+        case '*': return(multi(arg1,arg2));
+        case '/': return(div(arg1,arg2));
+
+    }
+}
+mathOperation(5,5,'+');
+mathOperation(5,5,'/');
+
+    </script>
+
+    
+</body>
+</html>

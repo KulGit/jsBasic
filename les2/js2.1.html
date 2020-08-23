@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    "use strict";
+
+// ЗАДАНИЕ 2.1
+
+// example 1
+let a = 1, b = 1, c, d;
+c = ++a;
+alert (c);
+// инкримент перед переменной поэтому сначало увеличивает "а" на 1, а потом присваивание
+
+
+// example 2
+d = b++;
+alert(d);
+//тут сначало идет присваивание d=1, а потом b увеличивается на 1
+
+
+// example 3
+c = 2 + ++a;
+alert(c);
+// из первого примера "а" равно уже 2 и здесь инкримент итого "а"=3, и 2+3=5;
+
+
+//example 4
+d = 2 + b++;
+alert(d); // инкримент уже после присвоения поэтому здесь 2 +2=4
+alert(a); // a = 3 уже в примере 3
+alert(b); // b - во втором примере стало 2, а в четвертом - 3
+
+    </script>
+
+    
+</body>
+</html>

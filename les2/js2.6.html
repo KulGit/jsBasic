@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+"use strict";
+
+// ЗАДАНИЕ 2.6
+
+let answerUser = +prompt('Введите сумму вклада');
+
+let lastNumber = String(answerUser);
+// console.log(lastNumber);
+
+let strenght =lastNumber.length-1;
+
+switch (lastNumber.charAt(strenght)) {
+    case '1': alert(lastNumber + '  рубль');
+    break; 
+    case '2' : 
+    case '3' : 
+    case '4' : 
+    alert(lastNumber +'  рубля');
+    break;
+    case "0": 
+    case "5": 
+    case '6': 
+    case '7': 
+    case '8': 
+    case '9': 
+    alert(lastNumber +'  рублей');
+}
+
+    </script>
+
+    
+</body>
+</html>
