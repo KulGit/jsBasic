@@ -8,11 +8,55 @@
     "use strict"
 
     // ЗАДАНИЕ 4.1
+    // Сделал вывод сообщения и рекурсию, пока не будет правильно введено
 
-    let numberEnter = +prompt('Введите число');
+    let numberEnter;
+
+    function enter() {
+        numberEnter = prompt('Введите число');
+    }
     
 
+    let generalObject =  {
+        units:0,
+        tens:0,
+        hundreds:0,
+    }
+
     
+function lesson41 () {
+    enter();
+    let x=numberEnter.length;
+    console.log(x);
+
+        if ((Number.isInteger(+numberEnter)) && (Number(numberEnter) !=isNaN) && x<=3) {
+            //x<=3 чтобы не было ввода чисел с нулями впереди более двух, например 000001 
+            switch (x) {
+                case 1: 
+                    generalObject.units = numberEnter;
+                    break;
+                case 2:
+                    generalObject.tens = Math.floor(Number(numberEnter)/10);
+                    generalObject.units= Number(numberEnter)%10;
+                    break;
+                case 3:
+                    generalObject.hundreds = Math.floor(Number(numberEnter)/100);
+                    generalObject.tens= Math.floor(Number(numberEnter)/10)%10;
+                    generalObject.units= Number(numberEnter)%10;
+                    break;
+            }
+
+
+        } else {
+            alert('Введите число от 0 до 999 еще раз');
+            lesson41();
+
+        }
+}
+
+lesson41();
+
+console.log(generalObject);
 
     </script>
 </head>
