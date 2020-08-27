@@ -1,11 +1,10 @@
 'use strict';
 
 const buttonEnter = document.querySelectorAll('button');
-let i = 0;
 
 buttonEnter.forEach(function(button) {
-    this.addEventListener('click', function(){
-        this.classList.add('color__button')
+    button.addEventListener('click', function(){
+        button.classList.add('color__button')
     })
 });
 
