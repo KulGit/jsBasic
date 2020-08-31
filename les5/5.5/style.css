@@ -1,18 +1,14 @@
-img {
+#cell span {
+  display: inline-block;
   height: 200px;
   width: 200px;
 }
-button {
-  display: block;
+#chessBoard div:nth-child(odd) span:nth-child(even),
+#chessBoard div:nth-child(even) span:nth-child(odd) {
+  background-color: black;
 }
-.color__button {
-  background-color: red;
-}
-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.product {
-  margin: 20px;
+span {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
 }

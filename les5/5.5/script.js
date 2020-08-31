@@ -1,44 +1,48 @@
 'use strict';
 
-const buttonEnter = document.querySelectorAll('button');
+let chessBoard = document.getElementById("cell");
 
-buttonEnter.forEach(function(button) {
-    button.addEventListener('click', function(event){
-        pressClick(event);
-    });
-});
-
-function pressClick (clickedEvent) {
-    const chooseProduct = clickedEvent.target.parentNode;
- 
-    const objectProduct = {
-        product:chooseProduct,
-        productName:chooseProduct.querySelector('.productName'),
-        img:chooseProduct.querySelector('img'),
-        button:chooseProduct.querySelector('button'),
-    };
-
-    const textOnButton = objectProduct.button.innerText;
-    if (textOnButton === 'Подробнее') {
-        ShowTextButton(objectProduct);
-    }
-    else if (textOnButton === 'Отмена') {
-        HideTextButton(objectProduct);
-    };
+for ( let i=0;i<8;i++) {
+    let row = chessBoard.appendChild(document.createElement("div"));
+    for (let j=0;j<8;j++) {
+        row.appendChild(document.createElement("span"));    }
 }
 
-function ShowTextButton(objectProduct) {
-    objectProduct.img.style.display = 'none';
-    const text = 'lorem252525252';
-    objectProduct.productName.insertAdjacentHTML('afterend',`<div class="desc">${text}</div>`);
-    objectProduct.button.innerText = 'Отмена';
-}
 
-function HideTextButton (objectProduct) {
-    objectProduct.img.style.display = 'block';
-    objectProduct.button.innerText = 'Подробнее';
-    objectProduct.product.querySelector('.desc').remove();
+
+// var x=8;
+// var y=8;
+
+// var chessBoard = document.getElementById("chessBoard");
+
+// for (var i=0; i<y; i++){
+//     var row = chessBoard.appendChild(document.createElement("div"));
+//     for (var j=0; j<x; j++){
+//         row.appendChild(document.createElement("span"));
+//     }
+// }
+
+
+var table = document.createElement("table");
+for (var i = 1; i < 9; i++) {
+       var tr = document.createElement('tr');
+       for (var j = 1; j < 9; j++) {
+           var td = document.createElement('td');
+           if (i%2 == j%2) {
+               td.className = "white";
+           } else {
+               td.className = "black";
+           }
+           tr.appendChild(td);
+       }
+       table.appendChild(tr);
 }
+document.body.appendChild(table);
+
+
+
+
+
 
 
 
