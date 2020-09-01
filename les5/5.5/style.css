@@ -1,14 +1,10 @@
-#cell span {
-  display: inline-block;
-  height: 200px;
-  width: 200px;
+.white {
+  width: 100px;
+  height: 100px;
+  background-color: white;
 }
-#chessBoard div:nth-child(odd) span:nth-child(even),
-#chessBoard div:nth-child(even) span:nth-child(odd) {
+.black {
+  width: 100px;
+  height: 100px;
   background-color: black;
-}
-span {
-  display: inline-block;
-  height: 200px;
-  width: 200px;
 }
