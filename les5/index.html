@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        table {
+            margin: -80px auto 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 80px;
+            height: 80px;
+            box-sizing: border-box;
+            font-weight: 700;
+            /* border: 1px solid #000; */
+        }
+
+        .white {
+            background: #ffce9e;
+        }
+
+        .black {
+            background: #000;
+        }
+    </style>
+
+    <script>
+        "use strict";
+
+        const letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+        const numb = [1, 2, 3, 4, 5, 6, 7, 8];
+        var table, tr, td, i, j;
+
+        function createTeble() {
+            table = document.createElement("table");
+            return table;
+        }
+
+        function createTr() {
+            tr = document.createElement("tr");
+            return tr;
+        }
+
+        function createTd() {
+            td = document.createElement("td");
+            return td;
+        }
+
+        function addNumber() {
+            var td = document.querySelectorAll("tr:nth-child(n + 2) td:nth-child(1)")
+
+            Array.prototype.forEach.call(td, function (x, i, arr) {
+                x.textContent = numb[i];
+                x.style.cssText = "text-align:right; padding-right:0.5em";
+            });
+        }
+
+        function addLetter() {
+            var td = document.querySelectorAll("tr:nth-child(1) td:nth-child(n + 2)")
+
+            Array.prototype.forEach.call(td, function (x, i, arr) {
+                x.textContent = letters[i];
+                x.style.cssText = "text-align:center; vertical-align:bottom; padding-bottom:0.5em; text-transform:uppercase;";
+            });
+        }
+
+        function init() {
+            document.body.appendChild(createTeble());
+
+            for (i = 0; i < 9; i++) {
+                table.appendChild(createTr());
+
+                for (j = 0; j < 9; j++) {
+                    tr.appendChild(createTd());
+
+                    if (i > 0 && j > 0) {
+                        if (i % 2 != j % 2) {
+                            td.className = "white";
+                        } else {
+                            td.className = "black";
+                        }
+                    }
+                }
+            }
+
+            addNumber();
+            addLetter();
+        }
+    </script>
+</head>
+
+<body onload="init()">
+
+</body>
+
+</html>
