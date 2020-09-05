@@ -16,6 +16,23 @@
 
     <!-- Задание. Найдите элемент с классом .nav-link и используя метод toggle из свойства classList
     у элемента, добавьте или уберите класс .active. -->
+
+    <script>
+
+
+        let i = document.querySelector('a');
+        console.log(i.classList);
+
+        i.classList.toggle('active');
+
+        // i.classList.remove("active");
+        console.log(i.classList);
+
+        i.classList.toggle('active');
+        console.log(i.className);
+
+
+    </script>
 </body>
 
 </html>
