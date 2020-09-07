@@ -16,6 +16,17 @@
     2. Проверьте, есть ли в ссылке текст "ссылка", и если нет, то добавьте. -->
 
     <script>
+        let i = document.querySelectorAll('a');
+
+        Array.prototype.forEach.call(i, function(x,ip,arr){
+
+            let check = i[ip].innerHTML;
+
+            if (check === '') {
+                i[ip].innerHTML = 'ссылка';
+            };
+        })
+
         
     </script>
 </body>

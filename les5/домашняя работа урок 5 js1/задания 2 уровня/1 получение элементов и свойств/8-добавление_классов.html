@@ -19,6 +19,20 @@
     -->
 
     <script>
+        let i = document.querySelectorAll('b');
+
+        Array.prototype.forEach.call(i, function(x,ip,arr){
+
+            let classCheck = i[ip].classList;
+
+            let check = classCheck.contains('sign');
+
+            if (check === false) {
+                i[ip].classList.add('sign');
+            };
+        })
+
+        console.log(i);
         
     </script>
 </body>

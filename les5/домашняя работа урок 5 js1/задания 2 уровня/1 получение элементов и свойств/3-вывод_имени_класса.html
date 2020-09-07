@@ -18,6 +18,11 @@
     -->
 
     <script>
+        let i = document.getElementsByTagName('h2');
+
+        Array.prototype.forEach.call(i, function(x,ip,arr){
+            console.log(i[ip].className);
+        })
         
     </script>
 </body>

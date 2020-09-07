@@ -16,6 +16,13 @@
      -->
 
     <script>
+        let div = document.querySelector('div');
+        let classes = div.classList;
+
+        Array.prototype.forEach.call(classes, function(x,ip,arr){
+            console.log(x);
+        })
+
         
     </script>
 </body>

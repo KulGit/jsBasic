@@ -11,7 +11,7 @@
          tabindex="-1" 
          aria-labelledby="exampleModalLabel" 
          aria-hidden="true">
-    </div>
+    Text for click</div>
 
     <!-- 
     Задание.
@@ -20,5 +20,19 @@
     3. При клике из event.target c помощью getAttribute() получите значение
     каждого атрибута и выведите в консоль.
     -->
+    <script>
+        let i = document.querySelector('div');
+
+        i.addEventListener('click', function(event){
+            let target = event.target;
+            
+            console.log(target);
+            console.log(target.getAttribute('id'));
+            console.log(target.getAttribute('class'));
+            console.log(target.getAttribute('tabindex'));
+            console.log(target.getAttribute('aria-labelledby'));
+            console.log(target.getAttribute('aria-hidden'));
+        })
+    </script>
 </body>
 </html>

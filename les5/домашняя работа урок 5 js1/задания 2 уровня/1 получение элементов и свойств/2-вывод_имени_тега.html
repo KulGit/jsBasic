@@ -17,6 +17,11 @@
     -->
 
     <script>
+        let i = document.getElementsByClassName('one');
+        Array.prototype.forEach.call(i, function (x, ip, arr) {
+            console.log(i[ip].innerHTML); 
+            });
+
 
     </script>
 </body>

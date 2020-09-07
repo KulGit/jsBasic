@@ -9,13 +9,13 @@
     
     <ul>
         <li>
-            <button>Кнопка</button>
+            <button>Кнопка 1</button>
         </li>
         <li>
-            <button>Кнопка</button>
+            <button>Кнопка 2</button>
         </li>
         <li>
-            <button>Кнопка</button>
+            <button>Кнопка 3</button>
         </li>
     </ul>
 
@@ -23,7 +23,12 @@
     элемент, на котором произошел клик, с помощью event.target, где event - это
     объект события, передаваемый в функцию-обработчик клика. -->
 
+
     <script>
+        let i = document.querySelector('ul');
+        i.addEventListener('click',function(event) {
+            console.log(event.target.innerHTML);
+        } )
         
     </script>
 </body>
