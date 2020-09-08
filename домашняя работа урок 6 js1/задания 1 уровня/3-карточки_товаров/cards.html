@@ -46,17 +46,17 @@
     <script>
         let i = document.querySelectorAll('.product');
         i.forEach(element => {
-            element.style.backgroundcolor = 'yellow';
+            element.style.backgroundColor = 'yellow';
         })
 
         let productName = document.querySelectorAll('.productName');
-        for (let element of productName) {
-            element.style.fontsize = '24px';
+        for (let j of productName) {
+            j.style.fontSize = '24px';
         }
 
-        Array.prototype.forEach.call(i, function (x, ip, arr) {
-            x.style.backgroundcolor = 'yellow';
-            });
+        // Array.prototype.forEach.call(i, function (x, ip, arr) {
+        //     x.style.backgroundcolor = 'yellow';
+        //     });
 
 
 
