@@ -45,15 +45,11 @@
 
     <script>
         let buttons = document.querySelectorAll('button');
-        buttons.forEach(element => {
-            element.addEventListener('click', function closeClickHandler(event));
+        Array.prototype.forEach.call(buttons,function(x,ip,arr){
+            x.addEventListener('click', function closeClickHandler(event){
+                event.currentTarget.parentNode.style.display = 'none';
+            })
         })
-
-
-        function closeClickHandler(event) {
-            event.currentTarget
-           
-        }
     </script>
 </body>
 

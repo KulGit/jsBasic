@@ -41,7 +41,13 @@
     -->
 
     <script>
-        
+        function loadPictures () {
+            let imgAll = document.querySelectorAll('img');
+            for (let i=0; i<imgAll.length; i++) {
+                imgAll[i].setAttribute('src', `images/${i+1}.jpg`)
+            }
+        }
+        setTimeout(loadPictures,1000);
         
     </script>
 </body>

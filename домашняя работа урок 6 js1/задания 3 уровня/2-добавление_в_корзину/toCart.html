@@ -41,6 +41,23 @@
     -->
 
     <script>
+        let buttons = document.querySelectorAll('button');
+        // Почему здесь не отрабатывает esle?
+        buttons.forEach(element => {
+            element.addEventListener('click', function(event){
+                if (event.target.innerText = 'В корзину') {
+                    event.target.innerText = 'Добавлено';
+                    event.target.parentNode.style.background = 'lightgreen';
+                } else {
+                    event.target.innerText = 'В корзину';
+                    event.target.parentNode.style.background = 'white';
+                }
+            })
+        })
+
+
+
+
         
     </script>
 </body>
