@@ -15,14 +15,7 @@ let text = document.querySelector('.text');
 let allLink = document.querySelectorAll('.nav-link');
 
 allLink.forEach(element => {
-    if (element.classList.contains('active')) {
-        console.log('working');
-    }
-    let haveActive = element.classList.contains('active');
-    console.log(haveActive);
-    // addEventListener.('click', function clickHand (){
-
-    // });
+    element.addEventListener('click', function clickHandler() {})
     
 });
 
@@ -34,8 +27,7 @@ allLink.forEach(element => {
 function clickHandler(event) {
     // здесь вызывайте changeText и changeActiveClass, и передавайте
     // им объект события.
-    changeText(event);
-    chandgeActiveClass(event);
+    
    
 }
 
