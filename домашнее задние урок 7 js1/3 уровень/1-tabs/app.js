@@ -48,6 +48,10 @@ function changeActiveClass(event) {
  * @param {MouseEvent} event 
  */
 function changeText(event) {
+    let textLink = event.target.textContent;
+    switch(textLink) {
+        case: 
+    } 
 
     
 }
