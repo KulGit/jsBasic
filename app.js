@@ -15,9 +15,9 @@ let text = document.querySelector('.text');
 let allLink = document.querySelectorAll('.nav-link');
 
 allLink.forEach(element => {
-    element.addEventListener('click',clickHandler)
-    
+    element.addEventListener('click', clickHandler);
 });
+
 /**
  * Обработчик клика по .nav-link
  * @param {MouseEvent} event 
@@ -25,8 +25,8 @@ allLink.forEach(element => {
 function clickHandler(event) {
     // здесь вызывайте changeText и changeActiveClass, и передавайте
     // им объект события.
-    changeActiveClass(event);
     changeText(event);
+    changeActiveClass(event);
 }
 
 /**
@@ -35,11 +35,12 @@ function clickHandler(event) {
  * @param {MouseEvent} event 
  */
 function changeActiveClass(event) {
-    allLink.forEach(element => {
-       element.classList.remove('active');
+    Array.prototype.forEach.call(allLink, function(x, i, arr) {
+        x.classList.remove("active");
     });
-    let activeTab = event.target;
-    activeTab.classList.add('active');
+
+    var link = event.target;
+    link.classList.add("active");
 }
 
 /**
@@ -49,13 +50,17 @@ function changeActiveClass(event) {
  * @param {MouseEvent} event 
  */
 function changeText(event) {
-    let textLink = event.target.textContent;
-    switch(textLink) {
-        case 'Link 1': text.innerHTML = texts.text1;
-        break;
-        case 'Link 2': text.innerHTML = texts.text2;
-        break;
-        case 'Link 3': text.innerHTML = texts.text3;
-        break;
-    } 
+    var linkTxt =  event.target.textContent;
+
+    switch(linkTxt) {
+        case "Link 1":
+            text.innerHTML = texts.text1;
+            break;
+        case "Link 2":
+            text.innerHTML = texts.text2;
+            break;
+        case "Link 3":
+            text.innerHTML = texts.text3;
+            break;
+    };
 }
