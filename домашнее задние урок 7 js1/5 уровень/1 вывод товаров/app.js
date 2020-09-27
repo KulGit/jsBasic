@@ -75,12 +75,18 @@ const products = {
     ],
 };
 
+let button = document.querySelectorAll('button');
+button.forEach(element => {
+    element.addEventListener('click',clickHandler);
+})
+
 
 /**
  * Эта функция должна вызываться при клике по кнопкам.
  * @param {MouseEvent} event
  */
 function clickHandler(event) {
+    
     //вам нужно очищать содержимое .products
     
     //в showCategory надо передать строку с типом категории, тип берите

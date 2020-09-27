@@ -28,6 +28,15 @@
     <script>
         let button = document.querySelector('button');
         let message = document.querySelector('.message');
+        let heightMessage = message.clientHeight;
+        let audio = new Audio('notification.mp3');
+
+        button.addEventListener('click',function(){
+            // message.style.top = `calc(100vh - ${heightMessage}px)`; 
+            //                   OR 
+            message.style.transform = `translateY(-${heightMessage}px)`;
+            audio.play();
+        })
 
         
 
