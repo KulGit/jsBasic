@@ -76,7 +76,7 @@ const products = {
 };
 
 let button = document.querySelectorAll('button');
-let productsNode = document.querySelector('.products');
+let productsNode = document.querySelectorAll(".products")[0];
 
 button.forEach(element => {
     element.addEventListener('click',clickHandler);
@@ -87,16 +87,24 @@ button.forEach(element => {
  * @param {MouseEvent} event
  */
 function clickHandler(event) {
+
     let category = event.target.getAttribute('data-type');
+    let prodChild = document.querySelectorAll(".product")[0];
+    // let productsNode = document.querySelectorAll(".products")[0];
 
-    //вам нужно очищать содержимое .products
+    if (prodChild != undefined) {
+        productsNode.removeChild(prodChild);
+    }
 
-    productsNode.innerHTML = '';
     showCategory(category);
 
+    //вам нужно очищать содержимое .products
+    
     //в showCategory надо передать строку с типом категории, тип берите
     //из атрибута data-type у кнопки, по которой кликнули.
+    
 }
+
 /**
  * Функция берет товары (объекты) из соответствующего массива phones,
  * tablets или tv. Генерирует разметку, используя getProductMarkup
@@ -107,17 +115,14 @@ function clickHandler(event) {
 function showCategory(category) {
 
     switch(category) {
-        case 'phones' : 
+        case "phones":
             getProductMarkup(products.phones);
             break;
-        case 'tablets' : 
-            getProductMarkup(products.tablets);
-            break;
-        case 'tv' : 
-            getProductMarkup(products.tv);
-            break;
     }
+
+    // let product = products.filter(word => )    
 }
+
 /**
  * @param {Object} product объект из массива phones, tablets или tv.
  * @param {number} product.id id продукта
@@ -128,18 +133,13 @@ function showCategory(category) {
  * в верху этого файла.
  */
 function getProductMarkup(product) {
-    let amountProduct = product.length;
-    for (let i=0; i<amountProduct; i++) {
+    let n = product.length;
+    let i;
+    // let product = document.createElement("div");
 
-        productsNode.insertAdjacentHTML('afterbegin', `
-    
-        <div class="product">
-            <div>${product[i].name}</div>
-            <img src="${product[i].imageUrl}" alt="">
-            <div>${product[i].price}</div>
-            <a href="https://example.com/producs/${product[i].id}">Подробнее</a>
-        </div>
-        `)
+    console.log(n);
+
+    for (i = 0; i < n; i++) {
+        productsNode.insertAdjacentHTML("afterbegin", `<div></div>`);
     }
-
 }
