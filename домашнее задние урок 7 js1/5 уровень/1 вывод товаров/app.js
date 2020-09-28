@@ -86,7 +86,11 @@ button.forEach(element => {
  * @param {MouseEvent} event
  */
 function clickHandler(event) {
-    
+
+    let category = event.target.getAttribute('data-type');
+    console.log(category);
+    showCategory(category);
+
     //вам нужно очищать содержимое .products
     
     //в showCategory надо передать строку с типом категории, тип берите
@@ -102,6 +106,10 @@ function clickHandler(event) {
  * по которой кликнули.
  */
 function showCategory(category) {
+
+    // let product = products.filter(word => )
+
+    // getProductMarkup();
     
 }
 
@@ -115,5 +123,18 @@ function showCategory(category) {
  * в верху этого файла.
  */
 function getProductMarkup(product) {
+
+    // let produc = document.createElement('div');
+
+    // produc.innerHTML = `
+
+    // <div>${здесь_название_товара}</div>
+    // <img src="${здесь путь до картинки}" alt="">
+    // <div>${здесь_цена}</div>
+    // <a href="https://example.com/producs/${здесь_id_товара}">Подробнее</a>
+
+    // `
+
+
 
 }
