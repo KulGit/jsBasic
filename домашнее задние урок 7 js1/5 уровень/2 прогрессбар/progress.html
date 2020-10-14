@@ -28,26 +28,25 @@
         */
 
         let div = document.querySelector('div');
-        
-        // for (let i=0; i<100; i++) {
-        /**
-         * @param {number} percent величина процента от 0 до 100.
-         */
-            // let percent = i;
-         function changeProgress(percent) {
+        let percent = 0;
+            /**
+             * @param {number} percent величина процента от 0 до 100.
+             */
 
-            for (let i=0; i<100; i++) {
-                let percent = i;
+            function changeProgress(percent) {
+                if (percent < 100) {
+                    percent += 2;
+                    div.style.background = `linear-gradient(90deg, rgba(38,255,162,1) ${percent}%, rgba(255,255,255,1) ${percent}%)`;
+                
+                    console.log(percent);
 
-                div.style.background = `linear-gradient(90deg, rgba(38,255,162,1) ${percent}%, rgba(255,255,255,1) ${percent}%)`;
-                setTimeout(changeProgress, 1000, percent);
+                    timeoutID = setTimeout(changeProgress, 100, percent);
+                } else if (percent === 100) {
+                    clearTimeout(timeoutID);
                 }
             }
-        changeProgress();
 
-        // }
-
-        
+        let timeoutID = setTimeout(changeProgress, 1000, percent);
 
     </script>
 </body>
