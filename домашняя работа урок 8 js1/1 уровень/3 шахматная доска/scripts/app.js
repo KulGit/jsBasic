@@ -24,7 +24,7 @@ let app = {
      */
     insertPawns() {
         // 6. получаем все теги td из 7 линии игрового поля, туда мы будем вставлять белые пешки
-        let whitePawnsRow = document.querySelectorAll();
+        let whitePawnsRow = document.querySelectorAll('td');
         for (let i = 0; i < whitePawnsRow.length; i++) {
             // 6.1 вставляем в текущий тег td белую пешку
             whitePawnsRow[i].innerHTML = this.getFigure(, );
@@ -72,12 +72,14 @@ let app = {
      */
     generateBoard() {
         // 3. создаем переменную board и присваиваем ей пустую строку, в ней будет храниться разметка игрового поля в виде строки
+        let board = '';
         
         // 3.1 создаем переменную rowStartWithColor, в которой укажем, что линия на игровом поле будет начинаться с белого цвета
         // т.е. присваиваем строку "white"
+        let rowStartWithColor = 'white';
         
         // 3.2 в цикле перебираем все строки из конфига
-        for (let i = 0; i < ; i++) {
+        for (let i = 0; i < this.config.cols.length; i++) {
             // 3.3 здесь в переменной row в виде строки будет храниться разметка для линии на поле (тег tr),
             // сейчас туда присваиваем пустую строку
             let row = "";
@@ -85,13 +87,15 @@ let app = {
             if (rowStartWithColor == 'white') {
                 // 3.5 в переменную row записываем результат работы функции this.generateRow,
                 // которой передали цвет, с которого начинается линия на поле, а также this.config.rows[i]
-                row = this.generateRow(, this.config.rows[i]);
+                row = this.generateRow(rowStartWithColor, this.config.rows[i]);
                 // 3.6 затем меняем rowStartWithColor на "black"
+                rowStartWithColor = 'black';
                 
             } else {
                 // 3.7 делаем то же что и в п. 1.5
-                row = this.generateRow(, this.config.rows[i]);
+                row = this.generateRow(rowStartWithColor, this.config.rows[i]);
                 // 3.8 меняем rowStartWithColor на "white"
+                rowStartWithColor = 'white';
                 
             }
             // 3.9 в board дописываем с помощью +=, то что получилось в переменной row
@@ -111,26 +115,30 @@ let app = {
      */
     generateRow(startWithColor, rowNum) {
         // 2. создаем переменную currentColorClass, в которую пишем startWithColor
+        let currentColorClass = startWithColor;
         
         // 2.1 создаем переменную row и присваиваем ей пустую строку, в ней будет храниться набор тегов td в виде
         // строки, т.е. это будет одна линия игрового поля
+        let row = '';
         
         // 2.2 в цикле перебираем массив cols из config
-        for (let i = 0; i < ; i++) {
+        for (let i = 0; i < this.config.cols.length; i++) {
             // 2.3 создаем переменную field, в которую записываем пустую строку, это будет тег td, ячейка игрового поля
+            let field = '';
             
             // 2.4 проверяем, равняется ли currentColorClass строке "white"
-            if () {
+            if (currentColorClass=='white') {
                 // 2.5 в переменную field пишем результат вызова функции this.generateField, которой передаем цвет ячейки игрового
                 // поля в виде строки, затем номер строки игровой доски в виде числа, последним аргументом передаем this.config.cols[i]
-                 = this.generateField(, , this.config.cols[i]);
+                 field = this.generateField(white, i, this.config.cols[i]);
                 // 2.6 присваиваем в currentColorClass строку "black"
+                currentColorClass = 'black';
                 
             } else {
                 // 2.7 делаем то же что и в п. 2.5, только первым параметром передаем "black"
-                 = this.generateField(, , this.config.cols[i]);
+                field = this.generateField(black, i, this.config.cols[i]);
                 // 2.8 переменной currentColorClass присваиваем строку "white"
-                
+                currentColorClass = 'white';
             }
             // 2.9 в переменную row дописываем с помощью += то что получилось в field
             row += field;
@@ -148,7 +156,7 @@ let app = {
      */
     generateField(color, rowNum, colChar) {
         // 1. вставьте нужные значения в атрибуты
-        return `<td data-rownum="${}" data-colchar="${}" class="${}"></td>`;
+        return `<td data-rownum="${rowNum}" data-colchar="${colChar}" class="${color}"></td>`;
     },
 
     /**
@@ -157,15 +165,15 @@ let app = {
      */
     insertRowsNumbers() {
         // 7. получаем все теги tr
-        let trs = document.querySelectorAll();
+        let trs = document.querySelectorAll('tr');
         // 7.1 перебираем эти теги в цикле
-        for (let i = 0; i < ; i++) {
+        for (let i = 0; i < trs.length ; i++) {
             // 7.2 создаем тег td
             let td = ;
             // 7.3 в текущий тег td в innerText вставляем номер строки из this.config.rows
-            td. = this.config.rows[ ];
+            td.innerText = this.config.rows[i];
             // 7.4 получившийся тег td вставляем в текущую строку (тег tr)
-            trs[ ].insertAdjacentElement("afterbegin", td);
+            trs[i].insertAdjacentElement("afterbegin", td);
         }
     },
 
@@ -178,16 +186,16 @@ let app = {
         // 8. создаем тег tr
         let tr = ;
         // 8.1 затем в innerHTML тега tr дописываем пустой тег td
-        tr. += '';
+        tr.innerHTML += '';
         // 8.2 в цикле перебираем колонки из this.config.cols
-        for (let i = 0; i < ; i++) {
+        for (let i = 0; i <this.config.cols.length; i++) {
             // 8.3 в innerHTML с помощью += дописываем тег td c буквой текущей колонки из this.config.cols
-            tr. += `<td>${this.config.cols[ ]}</td>`;
+            tr.innerHTML += `<td>${this.config.cols[i]}</td>`;
         }
         // 8.4 получаем тег tbody
         let tbody = ;
         // 8.5 и в него перед </tbody> вставляем значение из переменной tr
-        tbody.insertAdjacentElement(, );
+        tbody.insertAdjacentElement('beforebegin',tr);
     },
 }
 
